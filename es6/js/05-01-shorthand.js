@@ -12,7 +12,10 @@ const person = {
 const personShorthand = {
     firstName,
     lastName,
-    age
+    age,
+    hello(){
+        console.log('oi');
+    }
 }
-
-console.log(personShorthand);
+console.log(person);
+personShorthand.hello()
