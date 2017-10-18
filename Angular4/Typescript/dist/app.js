@@ -17,15 +17,17 @@ var Naveespacial = /** @class */ (function () {
     };
     return Naveespacial;
 }());
-var nave = new Naveespacial('motor de fusca');
-nave.pularParaHiperespaco();
+var fuscaoPreto = new Naveespacial('motor de fusca');
+fuscaoPreto.pularParaHiperespaco();
 var Golquadrado = /** @class */ (function (_super) {
     __extends(Golquadrado, _super);
     function Golquadrado() {
-        return _super.call(this, 'motorAP') || this;
+        var _this = _super.call(this, 'motorAP') || this;
+        _this.capacidadePortaMala = 1;
+        return _this;
     }
     Golquadrado.prototype.pularParaHiperespaco = function () {
-        if (Math.random() >= .5) {
+        if (Math.random() >= .1) {
             _super.prototype.pularParaHiperespaco.call(this);
         }
         else {
@@ -36,3 +38,5 @@ var Golquadrado = /** @class */ (function (_super) {
 }(Naveespacial));
 var golBranco = new Golquadrado();
 golBranco.pularParaHiperespaco();
+var bomDeCarga = function (ship) { return ship.capacidadePortaMala > 2; };
+console.log("gol branco \u00E9 bom pra levar muamba? " + (bomDeCarga(golBranco) ? 'sim' : 'nao') + " ");

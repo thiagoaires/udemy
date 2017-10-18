@@ -8,16 +8,20 @@ class Naveespacial{
 
 }
 
-let nave = new Naveespacial('motor de fusca');
-nave.pularParaHiperespaco()
+let fuscaoPreto = new Naveespacial('motor de fusca');
+fuscaoPreto.pularParaHiperespaco()
 
-class Golquadrado extends Naveespacial{
+class Golquadrado extends Naveespacial implements PortaMala{
+
+    capacidadePortaMala: number
+
     constructor(){
         super('motorAP')
+        this.capacidadePortaMala = 1
     }
 
     pularParaHiperespaco(){
-        if (Math.random() >= .5){
+        if (Math.random() >= .1){
             super.pularParaHiperespaco()
         } else {
             console.log(`sem gasolina pra abastecer ${this.propulsor}`)
@@ -25,9 +29,13 @@ class Golquadrado extends Naveespacial{
     }
 }
 
+interface PortaMala{
+    capacidadePortaMala: number
+}
+
 let golBranco = new Golquadrado();
 golBranco.pularParaHiperespaco();
 
-interface Picape{
-    capacidadePortaMala: number
-}
+let bomDeCarga = (ship: PortaMala) => ship.capacidadePortaMala > 2
+
+console.log(`gol branco é bom pra levar muamba? ${bomDeCarga(golBranco) ? 'sim' : 'nao'} `)
