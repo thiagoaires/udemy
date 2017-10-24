@@ -1,37 +1,9 @@
-class Naveespacial{
+import {NaveEspacial, PortaMala} from './base-ships'
+import {Golquadrado} from './starfighters'
 
-    constructor (public propulsor: string){}
-    
-    pularParaHiperespaco(){
-        console.log(`pulando pro hiperespaco com ${this.propulsor}`)
-    }
-
-}
-
-let fuscaoPreto = new Naveespacial('motor de fusca');
+let fuscaoPreto = new NaveEspacial('motor de fusca');
 fuscaoPreto.pularParaHiperespaco()
 
-class Golquadrado extends Naveespacial implements PortaMala{
-
-    capacidadePortaMala: number
-
-    constructor(){
-        super('motorAP')
-        this.capacidadePortaMala = 1
-    }
-
-    pularParaHiperespaco(){
-        if (Math.random() >= .1){
-            super.pularParaHiperespaco()
-        } else {
-            console.log(`sem gasolina pra abastecer ${this.propulsor}`)
-        }
-    }
-}
-
-interface PortaMala{
-    capacidadePortaMala: number
-}
 
 let golBranco = new Golquadrado();
 golBranco.pularParaHiperespaco();
