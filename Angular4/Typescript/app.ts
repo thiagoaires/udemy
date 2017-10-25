@@ -1,6 +1,10 @@
 import {NaveEspacial, PortaMala} from './base-ships'
 import {Golquadrado} from './starfighters'
 
+import * as _ from 'lodash'
+
+console.log(_.pad("Exemplo de Typescript TOP", 60, '-'))
+
 let fuscaoPreto = new NaveEspacial('motor de fusca');
 fuscaoPreto.pularParaHiperespaco()
 

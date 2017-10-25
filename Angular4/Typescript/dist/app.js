@@ -2,6 +2,8 @@
 exports.__esModule = true;
 var base_ships_1 = require("./base-ships");
 var starfighters_1 = require("./starfighters");
+var _ = require("lodash");
+console.log(_.pad("Exemplo de Typescript TOP", 60, '-'));
 var fuscaoPreto = new base_ships_1.NaveEspacial('motor de fusca');
 fuscaoPreto.pularParaHiperespaco();
 var golBranco = new starfighters_1.Golquadrado();
