@@ -7,5 +7,5 @@ let rotaHome        = require('./app/routes/home')(app);
 
 app.listen(3000, () => {
 
-    console.log('server ok');
+    console.log('server ON');
 });

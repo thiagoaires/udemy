@@ -7,6 +7,11 @@
 	<body>
 
 		<h1>Noticias</h1>
-
+		<dl>
+			<% for (i = 0; i < noticias.length; i++) { %>
+				<dt><%= noticias[i].id_noticia %> - <%= noticias[i].titulo %></dt>
+				<dd><%= noticias[i].noticia %></dd>
+			<% } %>
+		</dl>
 	</body>
 </html>
