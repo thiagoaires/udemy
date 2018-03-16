@@ -4,20 +4,14 @@
 /*e mais importante, dentro do modulo, se utiliza a var app, que eh a inclusao do modulo server... que eh a implementaçao do express
 e para que a informação de app seja utilizada dentro da funcao do app.js, a informação precisa ser recebida como parametro */
 
-
 module.exports = (app) => {
+    /*
+    let connection = dbConnection(); //feita a conexao, posso executar queries dentro do BD
+    */
+
     app.get('/noticias', (req, res) => {
 
-        let mysql = require('mysql');
-
-        let connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'portal_noticias'
-        });
-        //feita a conexao, posso executar queries dentro do BD
-       
+        let connection = app.config.dbConnection();
 
         // a query sempre espera 2 coisas, SQL e a funcao de callback, 
         // que sempre espera 2 parametros, erro e resultado
@@ -30,8 +24,7 @@ module.exports = (app) => {
             res.render('noticias/noticias', {noticias: resultados});
         });
 
-    
-
-        }
-    );
+        
+    });
+     
 };
