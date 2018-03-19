@@ -1,5 +1,6 @@
 let express = require('express'),
     consign = require('consign'),
+    bodyParser = require('body-parser'),
     app = express();
 
 
@@ -8,11 +9,12 @@ app.set('view engine', 'ejs'); //informar ao express que o modulode view eh o ej
 
 app.set('views', './app/views'); //informar ao express localizacao das views
 
-
+app.use(bodyParser.urlencoded({extended: true}));
 
 // consign reconhece arquivos da pasta routes, faz um scan[consign().includes]..
 //e pega todas essas informaçoes e inclui no nosso servidor(app)
 consign().include('app/routes')
     .then('config/dbConnection.js')
+    .then('app/models')
     .into(app);
 module.exports = app;
