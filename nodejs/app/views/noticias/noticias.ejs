@@ -7,11 +7,23 @@
 	<body>
 
 		<h1>Noticias </h1>
-		<dl>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>noticia</th>
+				<th>resumo</th>
+				<th>Autor</th>
+				<th>Data</th>
+			</tr>
 			<% for (i = 0; i < noticias.length; i++) { %>
-				<dt><%= noticias[i].id_noticia %></dt>
-				<dd><%= noticias[i].titulo %></dd>
+				<tr>
+					<td><%= noticias[i].id_noticia %></td>
+					<td><%= noticias[i].titulo %></td>
+					<td><%= noticias[i].resumo %></td>
+					<td><%= noticias[i].autor%></td>
+					<td><%= noticias[i].data_noticia%></td>
+				</tr>
 			<% } %>
-		</dl>
+		</table>
 	</body>
 </html>
