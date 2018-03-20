@@ -10,6 +10,8 @@ app.set('view engine', 'ejs'); //informar ao express que o modulode view eh o ej
 
 app.set('views', './app/views'); //informar ao express localizacao das views
 
+app.use(express.static('./app/public'))
+
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(expressValidator());

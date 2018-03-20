@@ -9,27 +9,13 @@ module.exports = (application) => {
     let connection = dbConnection(); //feita a conexao, posso executar queries dentro do BD
     */
 
-   application.get('/noticias', (req, res) => {
-
-        let connection = application.config.dbConnection();
-        let noticiasModel = new application.app.models.noticiasDAO(connection);
-
-        noticiasModel.getNoticias((erros, resultados) => {
-
-            res.render('noticias/noticias', {noticias: resultados});
-        });
-        
+    application.get('/noticias', (req, res) => {
+        application.app.controllers.noticias.noticias(application, req, res);
     });
 
     application.get('/noticia', (req, res) => {
 
-        let connection = application.config.dbConnection();
-        let noticiasModel = new application.app.models.noticiasDAO(connection);
-
-        noticiasModel.getNoticia((erros, resultados) => {
-
-            res.render('noticias/noticia', {noticia: resultados});
-        });
+        application.app.controllers.noticias.noticia(application, req, res);
 
     });
      
