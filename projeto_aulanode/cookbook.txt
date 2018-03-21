@@ -1,0 +1,24 @@
+1 - criar diretorio
+2 - iniciar npm
+    -- npm init
+
+3 - baixar dependencias
+    --express
+    --ejs
+    --consign
+    --body-parser
+    --express-validator
+
+4 - estrutura
+    --./app.js
+        --/app
+            --/views
+            --/models/
+            --/controllers
+            --/routes
+            --/public
+                --/css
+                --/images
+                --/js
+    --./config/server.js
+
