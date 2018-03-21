@@ -24,7 +24,7 @@ module.exports.noticias_salvar = (application, req, res) =>{
     }
 
     let connection = application.config.dbConnection();
-    let noticiasModel = new application.app.models.noticiasDAO(connection);
+    let noticiasModel = new application.app.models.NoticiasDAO(connection);
 
     noticiasModel.salvarNoticia(noticia, (erros, resultados) => {
 

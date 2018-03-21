@@ -1,7 +1,7 @@
 module.exports.noticias = (application, req, res) => {
 
     let connection = application.config.dbConnection();
-    let noticiasModel = new application.app.models.noticiasDAO(connection);
+    let noticiasModel = new application.app.models.NoticiasDAO(connection);
 
     noticiasModel.getNoticias((erros, resultados) => {
 
@@ -13,9 +13,11 @@ module.exports.noticias = (application, req, res) => {
 module.exports.noticia = (application, req, res) => {
 
     let connection = application.config.dbConnection();
-    let noticiasModel = new application.app.models.noticiasDAO(connection);
+    let noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-    noticiasModel.getNoticia((erros, resultados) => {
+    let id_noticia = req.query;
+
+    noticiasModel.getNoticia(id_noticia, (erros, resultados) => {
 
         res.render('noticias/noticia', {noticia: resultados});
     });

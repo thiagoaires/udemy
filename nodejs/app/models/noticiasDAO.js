@@ -9,21 +9,20 @@ class NoticiasDAO{
         this._connection.query('select * from noticias', callback);
     };
 
-    getNoticia(callback){
-
-        this._connection.query('select * from noticias where id_noticia = 2', callback);
+    getNoticia(id_noticia, callback){
+        
+        this._connection.query('select * from noticias where id_noticia =' + id_noticia.id_noticia, callback);
     };
 
     salvarNoticia(noticia, callback){
-        console.log('noticia');
         this._connection.query('insert into noticias set ? ', noticia, callback)
     }
 
-    get5ultimasNoticias(callback){
+    get5UltimasNoticias(callback){
         this._connection.query('select * from noticias order by data_criacao desc limit 5', callback);
     }
 };
-
+ 
 module.exports = () => {
     return NoticiasDAO
 };
