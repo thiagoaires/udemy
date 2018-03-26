@@ -9,7 +9,7 @@ class UsuariosDAO{
 
         let dados = {
             operacao: 'inserir',
-            usuario: 'usuario',
+            usuario: usuario,
             collection: 'usuarios',
             callback: function(err, result){
                 res.send("ok");
