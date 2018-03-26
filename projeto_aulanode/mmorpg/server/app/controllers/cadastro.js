@@ -22,7 +22,7 @@ module.exports.cadastrar = (application, req, res) => {
     
     let UsuariosDAO = new application.app.models.UsuariosDAO(connection);
 
-    UsuariosDAO.inserirUsuario(dadosForm);
-    res.send('sem erros')
+    UsuariosDAO.inserirUsuario(dadosForm, res);
+    //res.send('sem erros')
 
 };
