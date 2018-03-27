@@ -22,6 +22,9 @@ let query = (db, dados) => {
         case "inserir":
             collection.insertOne(dados.usuario, dados.callback)
             break;
+        case "logar":
+            collection.find(dados.usuario, dados.callback);
+            break;
         default:
             break;
     }
