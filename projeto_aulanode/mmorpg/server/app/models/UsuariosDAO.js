@@ -25,8 +25,10 @@ class UsuariosDAO{
             usuario: usuario,
             collection: 'usuarios',
             callback: function(err, result){
-                console.log('ok... TALVEZ OK');
-                //res.send("ok");
+                console.log(res);
+                console.log(result);
+
+                console.log(err);
             }
         };
 

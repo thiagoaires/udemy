@@ -20,6 +20,5 @@ module.exports.autenticar = (application, req, res) => {
     let UsuariosDAO = new application.app.models.UsuariosDAO(connection);
 
     UsuariosDAO.autenticar(dadosForm);
-
-    res.send('season OK');
+    console.log(res);
 }

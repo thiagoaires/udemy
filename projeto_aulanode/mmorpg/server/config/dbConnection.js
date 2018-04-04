@@ -20,10 +20,10 @@ let query = (db, dados) => {
     let collection = db.collection(dados.collection);
     switch(dados.operacao){
         case "inserir":
-            collection.insertOne(dados.usuario, dados.callback)
+            collection.insertOne(dados.usuario, dados.callback);
             break;
         case "logar":
-            collection.find(dados.usuario, dados.callback);
+            collection.find(dados.usuario, dados.senha).toArray();
             break;
         default:
             break;
