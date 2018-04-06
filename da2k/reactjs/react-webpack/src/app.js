@@ -6,10 +6,8 @@ import Square from './square'
 class App extends Component {
   render () {
     return (
-      <div className='container'>
-        {['blue', 'red', 'green'].map((square, indice) => (
-          <Square key={indice} color={square} />
-        ))}
+      <div className='container' onClick={(e) => { alert('clicou') }}>
+        <Square />
       </div>
     )
   }
