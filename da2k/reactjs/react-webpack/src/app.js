@@ -10,13 +10,15 @@ class App extends Component {
       time: 0,
       showTimer: true
     }
+    console.log('constructor App')
   }
 
   componentDidMount () {
-    console.log('componentDidMount')
+    console.log('componentDidMount App')
   }
 
   render () {
+    console.log('render App')
     return (
       <div>
         <Timer time={this.state.time} />
