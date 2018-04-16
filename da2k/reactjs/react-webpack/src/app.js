@@ -6,32 +6,29 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      value: 'valor inicial',
-      checked: false
+      value: `2`
     }
   }
   render () {
     return (
       <div>
-        <form>
-          <input type='text' value={this.state.value}
+        <form 
+          onSubmit={(e) => {
+            e.preventDefault()
+            console.log('event', e)
+            }}
+          
             onChange={(e) => {
-              this.setState({value: e.target.value})
-            }} />
-          <label>
-            <input
-              type='checkbox'
-              value='my-checkbox'
-              checked={this.state.checked}
-              onChange={(e) => {
-                this.setState({checked: e.target.checked})
-              }} />
-            checkbox
-          </label>
-          <label>
-            <input type='radio' name='radio' value='radio1' /> radio 1
-            <input type='radio' name='radio' value='radio2' /> radio 2
-          </label>
+              console.log('name', e.target.name)
+              console.log('value', e.target.value)
+            }}
+          >
+          <input type='name' name='input-name' />
+          <input type='email' name='email' />
+          <textarea name='txtarea' defaultValue='oi' />
+
+          <input type='checkbox' onClick={} />
+          <button type='submit'>Enviar</button>
         </form>
       </div>
     )
