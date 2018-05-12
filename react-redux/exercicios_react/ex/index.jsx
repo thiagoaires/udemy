@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './component.jsx'
+import Primeiro, {Segundo} from './component'
 
-ReactDOM.render(<Component />, document.getElementById('app'))
+ReactDOM.render(
+  <div>
+    <Primeiro value='show!' />
+    <Segundo />
+  </div>
+, document.getElementById('app'))
 
