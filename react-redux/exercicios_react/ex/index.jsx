@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SilvaFamily from './silvaFamily'
+import ClassComponent from './classComponent'
 
 ReactDOM.render(
   <div>
-    <SilvaFamily />
+    <ClassComponent value='Componente classe'>
+      Children do Componente
+    </ClassComponent >
   </div>
 , document.getElementById('app'))
 
