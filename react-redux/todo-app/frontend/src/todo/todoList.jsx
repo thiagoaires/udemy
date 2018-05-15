@@ -2,6 +2,8 @@ import React from 'react'
 
 export default props => (
   <div>
-    <h1>Form</h1>
+    <h1>
+      List
+    </h1>
   </div>
 )
