@@ -34,7 +34,7 @@ class App extends Component {
       // )
     }
   }
-  handleRepos(e){
+  handleRepos(){
     ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/repos`)
       .then(result => {
         console.log(result)
@@ -44,7 +44,7 @@ class App extends Component {
       })  
   }
 
-  handleStarred(e){
+  handleStarred(){
     ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/starred`)
     .then(result => {
       console.log(result)
@@ -53,7 +53,17 @@ class App extends Component {
       })
     })  
   }
-  
+  getRepos(valor){
+    console.log(valor)
+    
+    // ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/${valor}`)
+    // .then(result => {
+    //   this.setState({
+    //     valor: [...result]
+    //   })
+    // })  
+  }
+
   render() {
     return (
       <AppContent 
@@ -61,8 +71,9 @@ class App extends Component {
         repos={this.state.repos}
         starred={this.state.starred}
         handleSearch={(e) => this.handleSearch(e)}
-        handleRepos={e => this.handleRepos(e)}
-        handleStarred={e => this.handleStarred(e)}
+        getRepos={(valor) => this.getRepos(valor)}
+        // handleRepos={() => this.handleRepos()}
+        // handleStarred={() => this.handleStarred()}
       />
     );
   }
