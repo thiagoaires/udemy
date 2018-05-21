@@ -13,11 +13,17 @@ class App extends Component {
       starred: []
     }
   }
+
+  getUrlFromGitHub(userGit, reposGit){
+    const reposUrl = reposGit ? `/${reposGit}` : ''
+    return `https://api.github.com/users/${userGit}${reposUrl}`
+  }
+  
   handleSearch(e) {
     const inputValue = e.target.value
     const keyPressed = e.which || e.keyCode
     if (keyPressed === 13) {
-      ajax().get(`https://api.github.com/users/${inputValue}`)
+      ajax().get(this.getUrlFromGitHub(inputValue))
         .then((result) => {
         this.setState({
           userinfo: {
@@ -27,41 +33,29 @@ class App extends Component {
             public_repos: result.public_repos,
             followers: result.followers,
             following: result.following
-          }
+          },
+          repos: [],
+          starred: []
         })
       })
       // .then(
       // )
     }
   }
-  handleRepos(){
-    ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/repos`)
+
+  getRepos(valor){
+    return e => (
+      ajax().get(this.getUrlFromGitHub(this.state.userinfo.login, valor))
       .then(result => {
-        console.log(result)
         this.setState({
-          repos: [...result]
+          // [valor]: [...result]
+          [valor]: result.map(repo => (
+            {name: repo.name,
+            html_url: repo.html_url}
+          ))
         })
       })  
-  }
-
-  handleStarred(){
-    ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/starred`)
-    .then(result => {
-      console.log(result)
-      this.setState({
-        starred: [...result]
-      })
-    })  
-  }
-  getRepos(valor){
-    console.log(valor)
-    
-    // ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/${valor}`)
-    // .then(result => {
-    //   this.setState({
-    //     valor: [...result]
-    //   })
-    // })  
+    )
   }
 
   render() {
@@ -71,7 +65,8 @@ class App extends Component {
         repos={this.state.repos}
         starred={this.state.starred}
         handleSearch={(e) => this.handleSearch(e)}
-        getRepos={(valor) => this.getRepos(valor)}
+        getRepos={this.getRepos('repos')}
+        getStarred={this.getRepos('starred')}
         // handleRepos={() => this.handleRepos()}
         // handleStarred={() => this.handleStarred()}
       />
