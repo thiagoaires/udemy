@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       userinfo: null,
       repos: [],
-      starred: []
+      starred: [],
+      isFetching: false
     }
   }
 
@@ -20,15 +21,16 @@ class App extends Component {
   }
   
   handleSearch(e) {
+
     const inputValue = e.target.value
     const keyPressed = e.which || e.keyCode
     if (keyPressed === 13) {
-      //e.persist()
-      const alvo = e.target
-      alvo.disabled = true
+      this.setState({isFetching: true})
       ajax().get(this.getUrlFromGitHub(inputValue))
         .then((result) => {
+
           this.setState({
+
             userinfo: {
             username: result.name,
             photo: result.avatar_url,
@@ -42,7 +44,7 @@ class App extends Component {
         })
       })
       .always(() => {
-        alvo.disabled = false
+        this.setState({isFetching: false})
       })
     }
   }
@@ -68,6 +70,7 @@ class App extends Component {
         userinfo={this.state.userinfo} 
         repos={this.state.repos}
         starred={this.state.starred}
+        isFetching={this.state.isFetching}
         handleSearch={(e) => this.handleSearch(e)}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}
