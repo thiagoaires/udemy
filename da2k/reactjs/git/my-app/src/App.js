@@ -23,10 +23,13 @@ class App extends Component {
     const inputValue = e.target.value
     const keyPressed = e.which || e.keyCode
     if (keyPressed === 13) {
+      //e.persist()
+      const alvo = e.target
+      alvo.disabled = true
       ajax().get(this.getUrlFromGitHub(inputValue))
         .then((result) => {
-        this.setState({
-          userinfo: {
+          this.setState({
+            userinfo: {
             username: result.name,
             photo: result.avatar_url,
             login: result.login,
@@ -38,8 +41,9 @@ class App extends Component {
           starred: []
         })
       })
-      // .then(
-      // )
+      .always(() => {
+        alvo.disabled = false
+      })
     }
   }
 
