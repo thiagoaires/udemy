@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1529295219533" clover="3.2.0">
-  <project timestamp="1529295219533" name="All files">
+<coverage generated="1529295490201" clover="3.2.0">
+  <project timestamp="1529295490202" name="All files">
     <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0" elements="2" coveredelements="1" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1">
       <file name="sum.js" path="/home/thiago/Área de Trabalho/udemy/da2k/reactjs/m02/jest-in-pratice/sum.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
