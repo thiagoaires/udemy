@@ -1,12 +1,16 @@
 TN:
-SF:/home/thiago/Área de Trabalho/udemy/da2k/reactjs/m02/jest-in-pratice/sum.js
-FN:1,(anonymous_0)
+SF:/Users/thiago.aires/Desktop/udemy/da2k/reactjs/m02/jest-in-pratice/src/map/map.js
+FN:3,(anonymous_0)
 FNF:1
-FNH:0
-FNDA:0,(anonymous_0)
-DA:1,1
-LF:1
-LH:1
+FNH:1
+FNDA:3,(anonymous_0)
+DA:3,1
+DA:4,3
+DA:5,3
+DA:6,4
+DA:8,1
+LF:5
+LH:5
 BRF:0
 BRH:0
 end_of_record
