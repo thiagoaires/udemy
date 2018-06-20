@@ -1,11 +1,13 @@
 'use strict'
 
-const map = (arr, func) => {
-  let newArr = []
-  for (let i = 0; i < arr.length; i++)
-    newArr.push(func(arr[i]))
+const map = (arr = [], metodo = (item) => item) => {
 
-  return newArr
+  let arrayNovo = []
+
+  for (let i = 0; i < arr.length; i++){
+    arrayNovo.push(metodo(arr[i], i, arr[i]))
+  }
+  return arrayNovo
 }
 
 export default map
