@@ -1,0 +1,24 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <button id="btnNoHtml">
+      make meu sandwich
+    </button>
+    <script>
+      const sandwich = {
+        bread: 'white',
+        cheese: 'cheddar',
+        prepare: function(){
+          return console.log(`preparing a sandwich with ${this.bread} and ${this.cheese}`)
+        },
+        make: function(){
+          this.prepare()
+        }
+      }
+      const $btn = document.getElementById('btnNoHtml')
+      $btn.addEventListener('click', () => sandwich.make())
+    </script>
+  </body>
+</html>
