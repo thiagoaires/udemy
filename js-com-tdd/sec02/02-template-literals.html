@@ -1,0 +1,39 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div id="artigo">
+
+    </div>
+    <script>
+      const article = {
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        intro: 'Vestibulum nisi magna, fringilla non blandit in, sagittis ac urna. Aenean pharetra metus sed porta vulputate.',
+        description: 'Curabitur turpis sapien, porta vel magna id, euismod malesuada justo. Mauris vitae porttitor sem. Fusce eget dui id libero semper feugiat sit amet vitae sem. Maecenas iaculis eleifend porttitor. Sed iaculis, erat non cursus posuere, elit libero hendrerit velit, at facilisis nisi libero sed massa. In tincidunt neque vitae turpis hendrerit, ac blandit velit egestas.',
+        tags: ['Morbi', 'maximus', 'tincidunt', 'commodo'],
+        author: 'Velazes'
+      }
+
+      function setAuthor(autor){
+        return (autor) ? autor : 'unknown'
+      }
+
+      const markup = `
+        <article>
+          <header>
+            ${article.title}
+          </header>
+          <footer>
+            <ul>
+              ${article.tags.map(tag => `<li>${tag}</li>`).join('')}
+            </ul>
+            <p>Author: ${setAuthor(article.author)}</p>
+          </footer>
+        </article>
+      `
+
+      document.getElementById('artigo').innerHTML = markup
+    </script>
+  </body>
+</html>

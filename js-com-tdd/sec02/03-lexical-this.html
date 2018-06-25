@@ -14,7 +14,9 @@
           return console.log(`preparing a sandwich with ${this.bread} and ${this.cheese}`)
         },
         make: function(){
-          this.prepare()
+          window.setTimeout(
+            () => this.prepare()
+            , 500)
         }
       }
       const $btn = document.getElementById('btnNoHtml')

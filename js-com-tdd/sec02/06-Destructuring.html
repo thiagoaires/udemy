@@ -1,0 +1,37 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <ul id="ulList">
+      <li>Thiago</li>
+      <li>Rodrigo</li>
+      <li>Alexandre</li>
+    </ul>
+    <script>
+      const data = {
+        "_id": "5b312f4cc41040053349140c",
+        "index": 0,
+        "guid": "fc2cc644-f89f-4920-ab10-a49f57e84b5b",
+        "isActive": false,
+        "balance": "$1,033.88",
+        "picture": "http://placehold.it/32x32",
+        "age": 28,
+        beholder: {
+          "eyeColor": "green",
+          "name": "Leila Ellis"
+        }
+      }
+
+      const { _id, guid } = data
+      const { eyeColor: eye } = data.beholder
+      console.log(_id, guid, eye)
+
+      const arr = ['thiago', 34, 'paulista']
+
+      const [nome, idade, regiao] = arr
+
+      console.log(nome, idade, regiao)
+    </script>
+  </body>
+</html>

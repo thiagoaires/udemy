@@ -1,0 +1,18 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <ul id="ulList">
+      <li>Thiago</li>
+      <li>Rodrigo</li>
+      <li>Alexandre</li>
+    </ul>
+    <script>
+      const lista = document.querySelectorAll('#ulList li')
+      const arrayLista = Array.from(lista)
+      const listaNomes = arrayLista.map( nome => nome.textContent)
+      console.log(lista, arrayLista, listaNomes)
+    </script>
+  </body>
+</html>
