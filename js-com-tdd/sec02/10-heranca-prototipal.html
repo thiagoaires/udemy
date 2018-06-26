@@ -1,0 +1,21 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+
+      function Animal(tipo, som){
+        this.tipo = tipo
+        this.som = som
+      }
+      Animal.prototype.hello = function(){
+        console.log(`Eu sou um ${this.tipo} e faz ${this.som}`)
+      }
+
+      const cachorro = new Animal('cachorro', 'auau')
+      const gato = new Animal('gato', 'miau')
+    </script>
+  </body>
+</html>

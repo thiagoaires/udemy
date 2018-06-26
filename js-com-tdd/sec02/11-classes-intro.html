@@ -1,0 +1,28 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+
+      class Animal{
+        constructor(tipo, som){
+          this.tipo = tipo
+          this.som = som
+        }
+        hello(){
+          console.log(`${this.som}! eu sou um ${this.tipo}`)
+        }
+
+        set nome(apelido){
+          this.apelido = apelido
+        }
+
+      }
+
+      const cachorro = new Animal('cachorro', 'auau')
+      const gato = new Animal('gato', 'miau')
+    </script>
+  </body>
+</html>

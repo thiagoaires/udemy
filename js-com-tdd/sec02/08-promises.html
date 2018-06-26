@@ -1,0 +1,25 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+
+      const defer = new Promise((resolve, reject) =>{
+        setTimeout(
+          () => true ? resolve('na minha maquina funciona') : reject('hospeda no servidor =(')
+          , 2000)
+      })
+
+      defer
+        .then(data => {
+          console.log(data)
+          return 'foo'
+          })
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+
+    </script>
+  </body>
+</html>

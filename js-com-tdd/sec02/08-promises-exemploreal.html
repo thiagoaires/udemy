@@ -1,0 +1,18 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+      const jsonFile = fetch('https://willianjusten.com.br/search.json')
+
+      jsonFile
+        .then(data => data.json())
+        .then(data => data.map(obj => {
+          console.log(obj.date, obj.title)
+        }))
+
+    </script>
+  </body>
+</html>

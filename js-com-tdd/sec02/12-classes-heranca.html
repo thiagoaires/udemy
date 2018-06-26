@@ -1,0 +1,35 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+
+      class Animal {
+        constructor(tipo){
+          this.tipo = tipo
+        }
+
+        ola(){
+          console.log(`OI!, sou um ${this.tipo}`)
+        }
+
+      }
+
+      class Cachorro extends Animal{
+        constructor(tipo, som){
+          super(tipo)
+          this.som = som
+        }
+
+        latido(){
+          console.log(`${this.som}! sou um ${this.tipo}`)
+        }
+      }
+
+      const elefante = new Animal('elefante')
+      const cachorro  = new Cachorro('cachorro', 'AAUAUUUEUAUAU!!!')
+    </script>
+  </body>
+</html>

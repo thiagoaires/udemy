@@ -1,0 +1,26 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+
+      const countries = new Promise((resolve, reject) => {
+        resolve({
+          country: 'Ireland',
+          value: 'Brazil'
+        })
+      })
+      const cars = new Promise((resolve, reject) => {
+        setTimeout(() =>
+          resolve(['Fusca', 'Onix', 'Belina'])
+          , 1000)
+      })
+
+      Promise
+        .all([countries, cars])
+        .then(res => console.log(res))
+    </script>
+  </body>
+</html>
