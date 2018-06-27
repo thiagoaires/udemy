@@ -1,0 +1,19 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script>
+
+      async function getPosts(){
+        const dados = await fetch('https://willianjusten.com.br/search.json')
+        const dadosJson = await dados.json()
+
+        return dadosJson.map( dado => console.log(dado.title))
+      }
+
+      getPosts()
+    </script>
+  </body>
+</html>
