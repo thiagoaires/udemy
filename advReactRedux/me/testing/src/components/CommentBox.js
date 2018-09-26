@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 
-export default class CommentBox extends Component{
+import { connect } from 'react-redux'
+import * as actions from 'actions'
+
+export class CommentBox extends Component{
 
   state = {
     comment: ''
   }
+
   handleTextArea = (e) => {
     this.setState({comment: e.target.value})
   }
@@ -14,6 +18,7 @@ export default class CommentBox extends Component{
     e.preventDefault()
 
     // TODO - enviar form
+    this.props.saveComment(this.state.comment)
 
     this.setState({comment: ''})
   }
@@ -32,3 +37,5 @@ export default class CommentBox extends Component{
     )
   }
 }
+
+export default connect(null, actions)(CommentBox)
