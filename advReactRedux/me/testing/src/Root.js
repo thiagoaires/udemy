@@ -4,13 +4,13 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from 'reducers'
 
-export default props => {
+export default ({children, initialState = {}}) => {
   return(
     <Provider store={createStore(
         reducers,
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        initialState
       )}>
-      {props.children}
+      {children}
     </Provider>
   )
 }
