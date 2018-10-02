@@ -33,6 +33,7 @@ export class CommentBox extends Component{
             <button>Submit Coment</button>
           </div>
         </form>
+        <button onClick={this.props.fetchComments}>fetch comments</button>
       </div>
     )
   }
