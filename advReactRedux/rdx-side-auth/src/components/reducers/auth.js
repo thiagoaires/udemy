@@ -4,5 +4,11 @@ const initialState = {
 }
 
 export default function(state = initialState, action){
-  return state
+  switch (action.type){
+    case 'AUTH_USER':
+      console.log(initialState)
+      break
+    default:
+      return state
+    }
 }
