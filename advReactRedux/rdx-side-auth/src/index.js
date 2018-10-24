@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
+import './components/styles/app.css'
+
 import App from './components/App'
 
 import Welcome from './components/Welcome'
+import About from './components/About'
 import Signup from './components/auth/Signup'
 import Register from './components/auth/Register'
 import reducers from './components/reducers'
@@ -30,6 +33,7 @@ ReactDOM.render(
         <Route exact path='/' component={Welcome} />
         <Route path='/login' component={Signup} />
         <Route path='/registro' component={Register} />
+        <Route path='/sobre' component={About} />
       </App>
     </BrowserRouter>
   </Provider>,

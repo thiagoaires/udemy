@@ -3,7 +3,9 @@ import React from 'react'
 export default () => {
   return (
     <div>
-      Bem vindo
+      <h1>
+        Bem vindo ao Grupo Social
+      </h1>
     </div>
   )
 }

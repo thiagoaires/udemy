@@ -19,6 +19,7 @@ class Signup extends Component{
 
     return (
       <div>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
             <label htmlFor="">E-mail</label>
