@@ -8,8 +8,6 @@ import * as actions from '../actions'
 class Signup extends Component{
 
   onSubmit = formProps => {
-
-    //console.log(this.props.signup)
     this.props.signup(formProps)
   }
 
@@ -20,6 +18,7 @@ class Signup extends Component{
     return (
       <div>
         <h2>Login</h2>
+        {JSON.stringify(this.state)}
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
             <label htmlFor="">E-mail</label>

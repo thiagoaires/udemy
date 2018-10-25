@@ -1,5 +1,6 @@
 const initialState = {
   authenticated: '',
+  apiToken: '',
   errorMessage: ''
 }
 

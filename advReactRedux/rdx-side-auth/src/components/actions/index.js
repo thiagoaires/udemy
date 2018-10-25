@@ -4,13 +4,18 @@ const fixedProps = {
   "phone": "+55 11 1111-1111",
   "hashedPassword": "3F0ACE6838A5A130329C479EF1969B03B49E71F0CB866A5E3860CA73B1C062F1"
 }
-export const signup = formProps => (dispatch) => {
+
+export const signup = formProps => async (dispatch) => {
   dispatch({
     type: AUTH_USER
   })
 
+  const mixedProps = {}
+  mixedProps['phone'] = formProps.email
+  mixedProps['hashedPassword'] = fixedProps.hashedPassword
 
-  axios.post('http://10.0.1.23:3000/api/auth', fixedProps)
+
+  await axios.post('http://10.0.1.23:3000/api/auth', mixedProps)
     .then(res => res.data)
     .then(data => console.log(data))
 }
