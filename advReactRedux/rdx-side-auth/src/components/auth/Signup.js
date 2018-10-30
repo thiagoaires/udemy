@@ -8,7 +8,9 @@ import * as actions from '../actions'
 class Signup extends Component{
 
   onSubmit = formProps => {
-    this.props.signup(formProps)
+    this.props.signup(formProps, () => {
+      this.props.history.push('/home')
+    })
   }
 
   render(){
@@ -18,7 +20,7 @@ class Signup extends Component{
     return (
       <div>
         <h2>Login</h2>
-        {JSON.stringify(this.state)}
+        {this.props.errorMessage}
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
             <label htmlFor="">E-mail</label>
@@ -47,7 +49,11 @@ class Signup extends Component{
   }
 }
 
+function mapStateToProps(state){
+  return { errorMessage: state.auth.errorMessage }
+}
+
 export default compose(
-  connect(null, actions),
+  connect(mapStateToProps, actions),
   reduxForm({form: 'signup'})
 )(Signup)

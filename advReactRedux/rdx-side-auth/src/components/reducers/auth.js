@@ -1,14 +1,16 @@
+import { AUTH_USER, AUTH_ERR } from '../actions/types'
+
 const initialState = {
   authenticated: '',
-  apiToken: '',
   errorMessage: ''
 }
 
 export default function(state = initialState, action){
   switch (action.type){
-    case 'AUTH_USER':
-      console.log(initialState)
-      break
+    case AUTH_USER:
+      return {...state, authenticated: action.payload}
+    case AUTH_ERR:
+      return{...state, errorMessage: action.payload }
     default:
       return state
     }

@@ -11,7 +11,7 @@ class Register extends Component{
     return (
       <div>
         <h2>Registro</h2>
-        <form on>
+        <form>
           <fieldset>
             <Field
               name='phone'
