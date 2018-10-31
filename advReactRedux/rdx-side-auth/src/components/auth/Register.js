@@ -9,7 +9,7 @@ import * as actions from '../actions'
 class Register extends Component{
   render(){
     return (
-      <div>
+      <div className='box-unlogged'>
         <h2>Registro</h2>
         <form>
           <fieldset>

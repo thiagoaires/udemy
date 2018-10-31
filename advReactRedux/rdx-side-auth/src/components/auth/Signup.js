@@ -18,9 +18,13 @@ class Signup extends Component{
     const { handleSubmit } = this.props
 
     return (
-      <div>
+      <div className='box-unlogged'>
         <h2>Login</h2>
-        {this.props.errorMessage}
+        <div className='box-error'>
+          {
+            this.props.errorMessage
+          }
+        </div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
             <label htmlFor="">E-mail</label>

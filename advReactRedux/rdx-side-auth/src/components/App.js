@@ -3,9 +3,15 @@ import Header from './Header'
 
 export default ({ children }) => {
   return(
-    <div>
-      <Header />
-      { children }
+    <div className='generalContent'>
+      <div className='horizontalMenu'>
+        das
+      </div>
+      <div className='contentMenu'>
+        <Header />
+        { children }
+      </div>
+
     </div>
   )
 }
