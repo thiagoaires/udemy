@@ -4,7 +4,7 @@ html, body{
 }
 
 body {
-  background: #eee;
+  background: #ddd;
   margin: 0
 }
 h2, h3, h4, h5, h6{
@@ -15,13 +15,21 @@ fieldset{
 }
 
 button{
-  padding: 1em;
+  background: #6d45c8;
+  border: none;
+  font-family: 'Fira Sans';
+  font-size: 1em;
+  color: #fff;
+  padding: .7em 1em;
 }
 
 .App {
   margin: 0 auto;
 }
-
+.titleLogo{
+  color: #6d45c8;
+  text-align: center;
+}
 .navHeader{
   background: #333;
   box-sizing: border-box;
@@ -34,45 +42,73 @@ button{
   color: #fff;
 }
 .generalContent{
-
-}
-.loggedContent{
-  box-sizing: border-box
-}
-.horizontalMenu{
-  background: #333;
-}
-.contentMenu{
-
+  overflow: hidden
 }
 
 .verticalMenu{
   background: #333;
-  height: 100vh;
+  left: 0;
+  margin-left: -250px;
   position: fixed;
-  width: 15%;
+  height: 100vh;
+  overflow: auto;
+  top: 0;
+  width: 250px;
+  left: 0px;
 }
-  .verticalMenu ul{
-    margin: 0;
-    padding: 0;
-  }
-
   .verticalMenu li{
     list-style: none;
+    border-bottom: 1px dotted #777;
   }
-  .verticalMenu li:hover{
-    background: #fc0;
-  }
-  .verticalMenu a{
-    color: #fff;
-    display: block;
-    padding: .5em 1em;
-    text-decoration: none;
-    width: 100%;
-  }
-  .verticalContent{
-    padding-left: 17%;
-  }
+    .verticalMenu li a{
+      box-sizing: border-box;
+      color: #eee;
+      display: block;
+      padding: .5em 1em;
+      font-weight: 500;
+      transition: all 400ms ease-in-out;
+      text-decoration: none;
+      width: 100%;
+    }
+    .verticalMenu li a:hover{
+      background: rgba(225, 225, 225, 0.19);
+    }
+.verticalMenuItem[type='checkbox'],
+.verticalSubMenuItem[type='checkbox']{
+  display: none;
+}
+.verticalMenuItem[type='checkbox']:checked ~ .verticalMenu{
+  margin-left: 0px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.49);
+}
+.verticalMenuItem[type='checkbox']:checked ~ .contentMenu{
+  transform:translate3d(260px, 0, 0);
+}
+.verticalMenuItem[type='checkbox']:checked ~ .hamburgerMenu{
+  margin-left: 260px;
+}
+
+.subHamburgerMenu{
+  display: block;
+  float: left;
+}
+
+.verticalSubMenuItems{
+  display: none
+}
+
+.verticalSubMenuItem[type='checkbox']:checked ~ .verticalSubMenuItems{
+  display: block
+}
+
+.hamburgerMenu{
+  font-size: 200%;
+}
+
+.verticalMenu, .contentMenu, .hamburgerMenu{
+  transition: all 200ms ease-out;
+}
+
   /* Cabeçalho logado */
 
   .box-unlogged{

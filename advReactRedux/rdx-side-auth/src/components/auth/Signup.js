@@ -19,7 +19,7 @@ class Signup extends Component{
 
     return (
       <div className='box-unlogged'>
-        <h2>Login</h2>
+        <h2>Acesse o Grupo Social</h2>
         <div className='box-error'>
           {
             this.props.errorMessage

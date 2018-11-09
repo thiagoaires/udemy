@@ -1,6 +1,23 @@
-import { AUTH_USER, AUTH_ERR } from './types'
+import { AUTH_USER, AUTH_ERR, AUTH_GROUPS } from './types'
 import axios from 'axios'
 import shajs from 'sha.js'
+
+export const loggedMenu = (token) => async (dispatch) => {
+
+  const headers = {
+    'content-type': 'application/json',
+    'authorization': token
+  }
+
+  const response = await axios.get('https://gruposocial-api.herokuapp.com/api/groups', headers)
+  console.log(response)
+
+  dispatch({
+    type: AUTH_GROUPS,
+    payload: response.data
+  })
+
+}
 
 export const signup = (formProps, callback) => async (dispatch) => {
 
@@ -9,18 +26,25 @@ export const signup = (formProps, callback) => async (dispatch) => {
   mixedProps['hashedPassword'] = formProps.password === undefined ? '' : shajs('sha256').update(formProps.password).digest('hex').toUpperCase()
   mixedProps['phone'] = formProps.email
 
-  console.log(mixedProps)
   try{
 
     const response = await axios.post('https://gruposocial-api.herokuapp.com/api/auth', mixedProps)
 
+    axios.defaults.headers.common['Authorization'] = response.data.token
+
+    const groups = await axios.get('https://gruposocial-api.herokuapp.com/api/groups')
+
+    localStorage.setItem('token', response.data.token)
+
     dispatch({
       type: AUTH_USER,
-      payload: response.data
+      payload: response.data.token
     })
 
-    localStorage.setItem('token', response.data)
-
+    dispatch({
+      type: AUTH_GROUPS,
+      payload: groups.data
+    })
     callback()
 
   } catch(e) {

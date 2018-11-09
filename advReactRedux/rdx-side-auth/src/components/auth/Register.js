@@ -17,7 +17,8 @@ class Register extends Component{
               name='phone'
               type='text'
               component='input'
-            /><button type='submit'>Enviar</button>
+            />
+            <button type='submit'>Enviar</button>
           </fieldset>
         </form>
       </div>
