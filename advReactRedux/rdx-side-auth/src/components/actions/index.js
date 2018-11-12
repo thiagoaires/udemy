@@ -8,6 +8,7 @@ export const loggedMenu = (token) => async (dispatch) => {
     'content-type': 'application/json',
     'authorization': token
   }
+  console.log(token)
 
   const response = await axios.get('https://gruposocial-api.herokuapp.com/api/groups', headers)
   console.log(response)
@@ -45,6 +46,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
       type: AUTH_GROUPS,
       payload: groups.data
     })
+
     callback()
 
   } catch(e) {

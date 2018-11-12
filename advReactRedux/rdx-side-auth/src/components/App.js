@@ -6,7 +6,9 @@ export default ({ children }) => {
   return(
     <div className='generalContent'>
 
-      { localStorage.getItem('token') !== null && <VerticalMenu /> }
+      {
+        localStorage.getItem('token') !== null && <VerticalMenu />
+      }
 
       <div className='contentMenu'>
         <Header />
