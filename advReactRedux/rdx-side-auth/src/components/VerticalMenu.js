@@ -16,14 +16,15 @@ const VerticalMenu = props => {
           {
             arrayData.map((dado, index) => (
               <li key={index}>
-               <input type='checkbox' id={`subHamburger${index}`} className='verticalSubMenuItem'/><label htmlFor={`subHamburger${index}`} className='subHamburgerMenu'>{dado.name}</label>
+               <input type='checkbox' id={`subHamburger${index}`} className='verticalSubMenuItem'/>
+               <label htmlFor={`subHamburger${index}`} className='subHamburgerMenu'>{dado.name}</label>
                 <ul className='verticalSubMenuItems'>
-                    <li>Dashboard</li>
-                    <li>Mensagens</li>
-                    <li>Eventos</li>
-                    <li>Cobranças</li>
-                    <li>Sub-grupos</li>
-                    <li>Sugestões</li>
+                    <li><Link to='/home'>Dashboard</Link></li>
+                    <li><Link to='/home'>Mensagens</Link></li>
+                    <li><Link to='/home'>Eventos</Link></li>
+                    <li><Link to='/home'>Cobranças</Link></li>
+                    <li><Link to='/home'>Sub-grupos</Link></li>
+                    <li><Link to='/home'>Sugestões</Link></li>
                 </ul>
               </li>
             ))

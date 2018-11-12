@@ -56,23 +56,42 @@ button{
   width: 250px;
   left: 0px;
 }
+  .verticalMenu ul{
+    margin: 0;
+    padding: 0;
+  }
   .verticalMenu li{
     list-style: none;
-    border-bottom: 1px dotted #777;
   }
-    .verticalMenu li a{
+
+  .verticalMenu li a,
+  .verticalMenu li label{
+      background: rgba(225, 225, 225, 0.07);
       box-sizing: border-box;
+      border-bottom: 1px dotted #000;
       color: #eee;
+      cursor: pointer;
       display: block;
-      padding: .5em 1em;
+      float: left;
       font-weight: 500;
+      padding: .5em 1em;
       transition: all 400ms ease-in-out;
       text-decoration: none;
       width: 100%;
     }
-    .verticalMenu li a:hover{
-      background: rgba(225, 225, 225, 0.19);
+    .verticalMenu li a:hover,
+    .verticalMenu li label:hover{
+      background:#6d45c8;
+      color: #fff;
     }
+    .verticalMenu ul li a,
+    .verticalMenu ul li label{
+      background: rgba(225, 225, 225, 0.01);
+      color: #999;
+      font-weight: 300;
+      padding-left: 1.5em;
+    }
+
 .verticalMenuItem[type='checkbox'],
 .verticalSubMenuItem[type='checkbox']{
   display: none;
@@ -89,8 +108,8 @@ button{
 }
 
 .subHamburgerMenu{
-  display: block;
-  float: left;
+  /* display: block;
+  float: left; */
 }
 
 .verticalSubMenuItems{
