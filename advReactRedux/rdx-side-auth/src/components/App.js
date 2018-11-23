@@ -9,7 +9,6 @@ export default ({ children }) => {
       {
         localStorage.getItem('token') !== null && <VerticalMenu />
       }
-
       <div className='contentMenu'>
         <Header />
         <h1 className='titleLogo'>GrupoSocial</h1>

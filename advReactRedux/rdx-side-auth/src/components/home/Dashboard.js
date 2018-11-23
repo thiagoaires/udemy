@@ -2,7 +2,11 @@ import React from 'react'
 
 class Dashboard extends React.Component{
 
-  componentDidMount = () => console.log('montou dash')
+  componentDidMount = () => {
+
+    console.log('montou dash')
+
+  }
 
   render(){
     return(

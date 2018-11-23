@@ -13,7 +13,6 @@ class VerticalMenu extends React.Component{
     return(
 
       <React.Fragment>
-
         <input type='checkbox' id='hamburger' className='verticalMenuItem'/><label htmlFor="hamburger" className='hamburgerMenu'>☰</label>
         <div className='verticalMenu'>
           <nav>
@@ -47,7 +46,10 @@ class VerticalMenu extends React.Component{
 
 
 function mapStateToProps(state){
-  return { listGroups: state.auth.listGroups }
+  return {
+    listGroups: state.auth.listGroups,
+    authenticated: state.auth.authenticated
+   }
 }
 
 export default connect(mapStateToProps, actions)(VerticalMenu)
