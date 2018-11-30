@@ -11,13 +11,12 @@ import Subgroups from './home/Subgroups'
 const Home = () =>{
   return(
     <div>
-      <h1>Grupo Social</h1>
-      <Route path='/home/dashboard' component={ Dashboard }/>
-      <Route path='/home/events' component={Events} />
-      <Route path='/home/messages' component={Messages} />
-      <Route path='/home/payment' component={Payment} />
-      <Route path='/home/suggestion' component={Suggestion} />
-      <Route path='/home/Subgroups' component={Subgroups} />
+      <Route path='/home/dashboard/:idGroup' component={Dashboard}/>
+      <Route path='/home/events/:idGroup' component={Events} />
+      <Route path='/home/messages/:idGroup' component={Messages} />
+      <Route path='/home/payment/:idGroup' component={Payment} />
+      <Route path='/home/suggestion/:idGroup' component={Suggestion} />
+      <Route path='/home/Subgroups/:idGroup' component={Subgroups} />
     </div>
   )
 }

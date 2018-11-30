@@ -9,7 +9,6 @@ class VerticalMenu extends React.Component{
   componentDidMount = () => this.props.loggedMenu()
 
   render(){
-
     return(
 
       <React.Fragment>
@@ -25,12 +24,12 @@ class VerticalMenu extends React.Component{
                   <input type='checkbox' id={`subHamburger${index}`} className='verticalSubMenuItem'/>
                   <label htmlFor={`subHamburger${index}`} className='subHamburgerMenu'>{dado.name}</label>
                   <ul className='verticalSubMenuItems'>
-                      <li><Link to='/home/dashboard'>Dashboard</Link></li>
-                      <li><Link to='/home/messages'>Mensagens</Link></li>
-                      <li><Link to='/home/events'>Eventos</Link></li>
-                      <li><Link to='/home/payment'>Cobranças</Link></li>
-                      <li><Link to='/home/subgroups'>Sub-grupos</Link></li>
-                      <li><Link to='/home/suggestion'>Sugestões</Link></li>
+                      <li><Link to={`/home/dashboard/${dado._id}`}>Dashboard</Link></li>
+                      <li><Link to={`/home/messages/${dado._id}`}>Mensagens</Link></li>
+                      <li><Link to={`/home/events/${dado._id}`}>Eventos</Link></li>
+                      <li><Link to={`/home/payment/${dado._id}`}>Cobranças</Link></li>
+                      <li><Link to={`/home/subgroups/${dado._id}`}>Sub-grupos</Link></li>
+                      <li><Link to={`/home/suggestion/${dado._id}`}>Sugestões</Link></li>
                   </ul>
                 </li>
               ))

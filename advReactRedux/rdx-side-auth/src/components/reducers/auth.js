@@ -1,6 +1,7 @@
-import { AUTH_USER, AUTH_ERR, AUTH_GROUPS, SET_USER } from '../actions/types'
+import { AUTH_USER, AUTH_ERR, AUTH_GROUPS, AUTH_TOKEN, SET_USER } from '../actions/types'
 
 const initialState = {
+  validation: '',
   authenticated: '',
   errorMessage: '',
   listGroups: '',
@@ -15,6 +16,8 @@ export default function(state = initialState, action){
       return {...state, errorMessage:   action.payload }
     case AUTH_GROUPS:
       return {...state, listGroups:     action.payload }
+    case AUTH_TOKEN:
+      return {...state, validation:     action.payload}
     case SET_USER:
       return {...state, userLogged:     action.payload }
     default:

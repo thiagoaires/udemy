@@ -37,7 +37,9 @@ class Header extends Component{
                   {userLogged.phone}
                 </li>
               </ul>
-            {console.log(userLogged)}
+            {
+              //console.log(userLogged)
+            }
           </div>
       }
       </div>

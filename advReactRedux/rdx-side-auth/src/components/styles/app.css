@@ -14,13 +14,19 @@ fieldset{
   border: none;
 }
 
-button{
+button,
+.button{
   background: #6d45c8;
   border: none;
   font-family: 'Fira Sans';
   font-size: 1em;
   color: #fff;
   padding: .7em 1em;
+  text-decoration: none;
+}
+.button + .button,
+button + button{
+  margin-left: 1em;
 }
 
 .App {
@@ -157,3 +163,23 @@ button{
     .header-logged-user{
       color: #fff;
     }
+
+.container-dashboard{
+  display: flex;
+  justify-content: space-between
+}
+  .container-dashboard > div{
+    width: 46%;
+    padding: 1em;
+  }
+  .container-dashboard table{
+    background: #eee;
+    width: 100%;
+  }
+  .container-dashboard th{
+    padding: .4em .2em
+  }
+  .container-dashboard td{
+    background: #fff;
+    padding: .3em .2em
+  }

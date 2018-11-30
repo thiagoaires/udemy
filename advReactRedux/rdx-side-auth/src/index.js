@@ -7,12 +7,13 @@ import './components/styles/app.css'
 
 import App from './components/App'
 
+import Home from './components/Home'
 import Welcome from './components/Welcome'
 import About from './components/About'
 import Signup from './components/auth/Signup'
 import Signout from './components/auth/Signout'
 import Register from './components/auth/Register'
-import Home from './components/Home'
+import Validate from './components/auth/Validate';
 import reducers from './components/reducers'
 import reduxThunk from 'redux-thunk'
 
@@ -38,6 +39,7 @@ ReactDOM.render(
         <Route path='/login' component={Signup} />
         <Route path='/logout' component={Signout} />
         <Route path='/registro' component={Register} />
+        <Route path='/validacao' component={Validate} />
         <Route path='/sobre' component={About} />
         <Route path='/home' component={Home} />
       </App>

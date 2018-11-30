@@ -1,6 +1,8 @@
-import { AUTH_USER, AUTH_ERR, AUTH_GROUPS, SET_USER } from './types'
+import { AUTH_USER, AUTH_ERR, AUTH_GROUPS, AUTH_TOKEN, SET_USER, GET_GROUP, GET_GROUP_MEMBERS } from './types'
 import axios from 'axios'
-import shajs from 'sha.js'
+
+import { hashValue } from '../../helpers'
+
 
 export const getUserLogged = () => async (dispatch) => {
 
@@ -17,13 +19,13 @@ export const getUserLogged = () => async (dispatch) => {
 
 }
 
+// ### MENU LOGADO ###
+
 export const loggedMenu = () => async (dispatch) => {
 
   const token = localStorage.getItem('token')
 
   axios.defaults.headers.common['Authorization'] = token
-
-  console.log(token)
 
   const groups = await axios.get('https://gruposocial-api.herokuapp.com/api/groups')
 
@@ -34,16 +36,20 @@ export const loggedMenu = () => async (dispatch) => {
 
 }
 
+
+// ### LOGIN ###
+
 export const signup = (formProps, callback) => async (dispatch) => {
 
-  const mixedProps = {}
+  const spreadProps = {...formProps}
 
-  mixedProps['hashedPassword'] = formProps.password === undefined ? '' : shajs('sha256').update(formProps.password).digest('hex').toUpperCase()
-  mixedProps['phone'] = formProps.email
+  if (!!spreadProps.hashedPassword) {
+    spreadProps.hashedPassword = spreadProps.hashedPassword.replace(spreadProps.hashedPassword, hashValue(spreadProps.hashedPassword))
+  }
 
   try{
 
-    const response = await axios.post('https://gruposocial-api.herokuapp.com/api/auth', mixedProps)
+    const response = await axios.post('https://gruposocial-api.herokuapp.com/api/auth', spreadProps)
 
     axios.defaults.headers.common['Authorization'] = response.data.token
 
@@ -52,6 +58,11 @@ export const signup = (formProps, callback) => async (dispatch) => {
     dispatch({
       type: AUTH_USER,
       payload: response.data.token
+    })
+
+    dispatch({
+      type: AUTH_ERR,
+      payload: ''
     })
 
     callback()
@@ -67,13 +78,83 @@ export const signup = (formProps, callback) => async (dispatch) => {
 
 }
 
-export const signout = () => {
+export const validateToken = (formProps, callback) => async dispatch => {
+
+  try{
+    const idOnValidate = localStorage.getItem('lpx-validation-id')
+    const response = await axios.get(`https://gruposocial-api.herokuapp.com/api/customers/verify/${idOnValidate}/${formProps.tokenValidation}`)
+
+    callback()
+
+    dispatch({
+      type: AUTH_ERR,
+      payload: 'User Validated'
+    })
+
+  }catch(e){
+
+    dispatch({
+      type: AUTH_ERR,
+      payload: e.response.data.details
+    })
+  }
+
+}
+
+// ### Registro ###
+
+export const signin = (formProps, callback) => async dispatch => {
+  const spreadProps = {...formProps}
+
+  if (!!spreadProps.hashedPassword) {
+    spreadProps.hashedPassword = spreadProps.hashedPassword.replace(spreadProps.hashedPassword, hashValue(spreadProps.hashedPassword))
+  }
+
+  try{
+    const response = await axios.post('https://gruposocial-api.herokuapp.com/api/customers', spreadProps)
+
+    const tokenId = response.data._id
+
+    localStorage.setItem('lpx-validation-id', tokenId)
+
+    dispatch({
+      type: AUTH_TOKEN,
+      payload: response.data
+    })
+
+    callback()
+
+  }catch(e){
+    console.log(e)
+  }
+
+}
+
+//  ### LOGOUT ###
+
+export const signout = callback => {
 
   localStorage.removeItem('token')
+
+  callback()
 
   return {
     type: AUTH_USER,
     payload: ''
   }
+}
 
+// ## dashboard
+
+export const loadGroupMembers = (nameGroup, listGroupMembers) => dispatch => {
+
+  dispatch({
+    type: GET_GROUP,
+    payload: nameGroup
+  })
+
+  dispatch({
+    type: GET_GROUP_MEMBERS,
+    payload: listGroupMembers
+  })
 }

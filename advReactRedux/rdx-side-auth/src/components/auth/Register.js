@@ -1,23 +1,61 @@
-import React, {Component} from 'react'
-import { reduxForm, Field} from 'redux-form'
+import React from 'react'
+import { reduxForm, Field } from 'redux-form'
 
-import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { connect } from 'react-redux'
 
 import * as actions from '../actions'
 
-class Register extends Component{
+class Register extends React.Component{
+
+  onRegister = formProps => {
+    this.props.signin(formProps, () => this.props.history.push('/validacao'))
+  }
+
   render(){
+
+    const { handleSubmit } = this.props
+
     return (
       <div className='box-unlogged'>
         <h2>Registro</h2>
-        <form>
+        <form onSubmit={handleSubmit(this.onRegister)}>
           <fieldset>
-            <Field
-              name='phone'
-              type='text'
-              component='input'
-            />
+            <p>
+              <label htmlFor="">Telefone</label>
+              <Field
+                name='phone'
+                type='text'
+                component='input'
+                autoComplete='none'
+              />
+            </p>
+            <p>
+              <label htmlFor="">E-mail</label>
+              <Field
+                name='email'
+                type='text'
+                component='input'
+                autoComplete='none'
+              />
+            </p>
+            <p>
+              <label htmlFor="">Senha</label>
+              <Field
+                name='hashedPassword'
+                type='password'
+                component='input'
+                autoComplete='none'
+              />
+            </p>
+            <p>
+              <label htmlFor="">Concorda com os termos?</label>
+              <Field
+                name='terms'
+                type='checkbox'
+                component='input'
+                />
+            </p>
             <button type='submit'>Enviar</button>
           </fieldset>
         </form>
@@ -28,6 +66,6 @@ class Register extends Component{
 }
 
 export default compose(
-  reduxForm({form: 'register'}),
-  connect(null, actions)
+  connect(null, actions),
+  reduxForm({form: 'register'})
 )(Register)

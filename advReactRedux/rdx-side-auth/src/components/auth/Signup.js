@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { reduxForm, Field } from 'redux-form'
 
 import { compose } from 'redux'
 import { connect } from 'react-redux'
+
 import * as actions from '../actions'
 
-class Signup extends Component{
+const validate = values => {
+  const errors = {}
+  if (!values.phone) (errors.phone = 'nao pode ser vazio')
+}
+
+class Signup extends React.Component{
 
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
@@ -27,26 +33,26 @@ class Signup extends Component{
         </div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
-            <label htmlFor="">E-mail</label>
-            <Field
-              name='email'
-              type='text'
-              component='input'
-              autoComplete='none'
-            />
-          </fieldset>
-          <fieldset>
-            <label htmlFor="">Senha</label>
-            <Field
-              name='password'
-              type='password'
-              component='input'
-              autoComplete='none'
-            />
-          </fieldset>
-          <div>
+            <p>
+              <label htmlFor="">Telefone</label>
+              <Field
+                name='phone'
+                type='text'
+                component='input'
+                autoComplete='none'
+              />
+            </p>
+            <p>
+              <label htmlFor="">Senha</label>
+              <Field
+                name='hashedPassword'
+                type='password'
+                component='input'
+                autoComplete='none'
+              />
+            </p>
             <button type='submit'>Login</button>
-          </div>
+          </fieldset>
         </form>
       </div>
     )
@@ -59,5 +65,8 @@ function mapStateToProps(state){
 
 export default compose(
   connect(mapStateToProps, actions),
-  reduxForm({form: 'signup'})
+  reduxForm({
+    form: 'signup',
+    validate
+  })
 )(Signup)
