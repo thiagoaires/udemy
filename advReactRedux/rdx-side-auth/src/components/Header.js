@@ -5,7 +5,9 @@ import * as actions from './actions'
 
 class Header extends Component{
 
-  componentDidMount = () => this.props.getUserLogged()
+  componentDidMount = () => {
+    this.props.getUserLogged()
+  }
 
   renderMenu(){
     const { userLogged } = this.props
@@ -37,9 +39,6 @@ class Header extends Component{
                   {userLogged.phone}
                 </li>
               </ul>
-            {
-              //console.log(userLogged)
-            }
           </div>
       }
       </div>

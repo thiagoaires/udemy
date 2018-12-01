@@ -26,14 +26,17 @@ export const loggedMenu = () => async (dispatch) => {
   const token = localStorage.getItem('token')
 
   axios.defaults.headers.common['Authorization'] = token
+  
+  try{
+    const groups = await axios.get('https://gruposocial-api.herokuapp.com/api/groups')
 
-  const groups = await axios.get('https://gruposocial-api.herokuapp.com/api/groups')
-
-  dispatch({
-    type: AUTH_GROUPS,
-    payload: groups.data
-  })
-
+    dispatch({
+      type: AUTH_GROUPS,
+      payload: groups.data
+    })
+  } catch(e){
+    console.log('erro', e)
+  }
 }
 
 

@@ -47,7 +47,7 @@ class VerticalMenu extends React.Component{
 function mapStateToProps(state){
   return {
     listGroups: state.auth.listGroups,
-    authenticated: state.auth.authenticated
+    auth: state.auth.authenticated
    }
 }
 
