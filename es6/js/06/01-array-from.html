@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <ul id='listShow'>
+      <li>TOP</li>
+      <li>show</li>
+      <li>Rogeirinho</li>
+    </ul>
+    <script>
+      const lista = document.querySelectorAll('#listShow li')
+      const listaArray = Array.from(lista)
+      const ulLista = listaArray.map((ls) => ls.textContent)
+      console.log(lista, listaArray, ulLista)
+    </script>
+  </body>
+</html>

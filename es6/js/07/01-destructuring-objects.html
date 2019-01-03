@@ -1,0 +1,23 @@
+<html>
+<body>
+  <script>
+    const data = {
+      name: 'Thiago',
+      surname: 'AIRES',
+      age: 34,
+      blog: 'http://www.thiagoas.com.br',
+      social: {
+        facebook: 'http://www.fb.com/thiagoas',
+        twitter: 'http://www.twitter.com/thiagoas'
+      }
+    }
+    const {name = 'beico', surname, clube = 'SPFC'} = data
+
+    console.log(name, surname, clube)
+
+    const {facebook: fb, twitter: tw, linkedin: li = 'vagabundo' } = data.social
+
+    console.log(tw, fb, li)
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+  
+  <script>
+    const data = [{
+      name: 'Thomas',
+      age: 18,
+      city: 'capao'
+    }, {
+      name: 'The Train', 
+      age: 5,
+      city: 'Minnesota'
+    }]
+
+    const sampleArray = [4,-5,6, -3]
+
+    const minus = sampleArray.find(underZero => underZero < 0 )
+    const minusIndex = sampleArray.findIndex(underIndex => underIndex < 0)
+    console.log(minus, minusIndex)
+
+    const nameThomas = data.find(valor => valor.name === 'Thomas')
+    const indexTrain = data.findIndex(valor => valor.name.includes('Train'))
+    console.log(nameThomas, indexTrain)
+  </script>
+</body>
+</html>

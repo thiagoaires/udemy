@@ -1,0 +1,12 @@
+<html>
+<body>
+  <script>
+    const url = 'https://willianjusten.com.br/search.json'
+    const loadData = fetch(url)
+                      .then(data => data.json())
+                      .then(data => data.map(datas => datas.title))
+                      .then(data => console.log(data))
+
+  </script>
+</body>
+</html>
