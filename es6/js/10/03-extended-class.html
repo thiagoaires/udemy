@@ -1,0 +1,30 @@
+<html>
+<body>
+  
+  <script>
+    class Animal{
+      constructor(tipo){
+        this.tipo = tipo
+      }
+      hello(){
+        return console.log(`i'm a ${this.tipo}`)
+      }
+    }
+
+    class Dog extends Animal{
+      constructor(som, tipo){
+        super(tipo)
+        this.som = som
+      }
+
+      bark(){
+        return console.log(`${this.som}!!!!!, sou um ${this.tipo}`)
+      }
+    }
+    
+    const nelly = new Animal('elephant')
+    const max = new Dog('auau', 'cachorro')
+    
+  </script>
+</body>
+</html>

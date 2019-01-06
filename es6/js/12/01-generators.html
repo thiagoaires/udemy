@@ -1,0 +1,19 @@
+<html>
+<body>
+  
+  <script>
+  
+    function* getNames(){
+      yield 'thiago'
+      yield 'bacon'
+      yield 'kevin'
+    }
+  
+    const names = getNames()
+    console.log(names.next())
+    console.log(names.next())
+    console.log(names.next())
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+  <script>
+    class Animal{
+      constructor(kind, sound){
+        this.kind   = kind
+        this.sound  = sound
+      }
+      hello(){
+        console.log(`${this.sound}, i'm a ${this.kind}`)
+      }
+
+      static info(){
+        console.log('this is a class to create animals')
+      }
+
+      get name(){
+        return console.log(`hello ${this.kind}, my real name is jaque`)
+      }
+
+      set nick(nickname){
+        this.nickname = nickname
+      }
+
+    }
+    const max = new Animal('Dog', 'RAWWWRARKWL...')
+  </script>
+</body>
+</html>

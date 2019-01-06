@@ -1,0 +1,22 @@
+<html>
+<body>
+  
+  <script>
+    const obj = {
+      name: 'thiago',
+      age: 34
+    }  
+    const proxy = new Proxy(obj,{
+      get(target, name){
+        console.log(`a man needs a target:`)
+        return target[name]
+      },
+      set(target, name, value){
+        console.log(`${target[name]} is a old target  `)
+        return target[name] = value.toUpperCase()
+      }
+    }
+    )
+  </script>
+</body>
+</html>
