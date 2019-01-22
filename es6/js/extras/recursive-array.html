@@ -1,0 +1,47 @@
+<html>
+
+  <body>
+    <div class='alvo'>
+
+    </div>
+
+
+    <script>
+      
+      const arrayObj = {
+        name: 'thiago',
+        question: 'blob',
+        options: [{
+          text: 'one', 
+          votes: 1
+        },{
+          text: 'two', 
+          votes: 2,
+          options: [{
+            text: 'alfa', 
+            votes: 1
+          },{
+            text: 'beta', 
+            votes: 1
+          }]
+        }]
+      }
+
+      const opt = [...arrayObj.options]
+      const empty = []
+      const recurse = (val) => {
+        if (val.length === 0){
+          return []
+        }
+      }
+
+      document.querySelector('.alvo').innerHTML = opt.map((vote) =>(`
+        <p>
+          ${vote.text} 
+          ${vote.votes}
+          ${vote.options .map(voto => voto.text)}
+        </p>
+      `)).join('')
+    </script>
+  </body>
+</html>
